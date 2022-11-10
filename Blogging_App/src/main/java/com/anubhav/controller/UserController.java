@@ -2,6 +2,7 @@ package com.anubhav.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,10 +28,10 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-	//post - create
 	
+	//post - create
 	@PostMapping("/")
-	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
 		UserDto createdUser= this.userService.createUser(userDto);
 		return new ResponseEntity<>(createdUser,HttpStatus.CREATED);
 	}
@@ -39,7 +40,7 @@ public class UserController {
 	//put - update
 	
 	@PutMapping("/{userId}")
-	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable Integer userId){
+	public ResponseEntity<UserDto> updateUser (@Valid @RequestBody UserDto userDto,@PathVariable Integer userId){
 		UserDto updatedUser= this.userService.updateUser(userDto, userId);
 	    return ResponseEntity.ok(updatedUser);
 	}
