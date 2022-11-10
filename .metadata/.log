@@ -544,3 +544,68 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 18:27:15.066
 !MESSAGE executing callback sts4.classpath.icBiikrE SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:08:30.669
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.icBiikrE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:08:30.673
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.icBiikrE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:08:30.673
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:08:30.674
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.icBiikrE => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:05.645
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:05.646
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@1bda6f1[org.springframework.tooling.boot.ls:1.33.0.202204250653(id=569)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:05.647
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:14.877
+!MESSAGE Boot LS startup time from start to initialized: 9228ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.095
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.sknNaqabisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.099
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.101
+!MESSAGE Scheduling initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.103
+!MESSAGE Scheduling initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.104
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.sknNaqab => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.113
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.194
+!MESSAGE classpath=92 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.204
+!MESSAGE buffering callback sts4.classpath.sknNaqab Blogging_App false 92
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:15.204
+!MESSAGE executing callback sts4.classpath.sknNaqab 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-11-10 22:09:17.213
+!MESSAGE executing callback sts4.classpath.sknNaqab FAILED
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 4 0 2022-11-10 22:09:17.216
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.springframework.tooling.ls.eclipse.commons.LSP4ECommandExecutor.executeClientCommand(LSP4ECommandExecutor.java:37)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.flush(SendClasspathNotificationsJob.java:178)
+	at org.springframework.tooling.jdt.ls.commons.classpath.SendClasspathNotificationsJob.run(SendClasspathNotificationsJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
