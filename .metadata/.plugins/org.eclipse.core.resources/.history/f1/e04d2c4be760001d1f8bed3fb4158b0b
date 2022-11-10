@@ -1,0 +1,13 @@
+package com.anubhav.service;
+
+import com.anubhav.entity.User;
+import com.anubhav.payloads.UserDto;
+
+public interface UserService {
+
+	
+	 public UserDto CreateUser(UserDto user);
+	 public UserDto UpdateUser(UserDto user,Integer userId);
+	 
+	 
+}

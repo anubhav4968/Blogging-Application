@@ -1,0 +1,42 @@
+package com.anubhav.service;
+
+import java.util.List;
+
+import com.anubhav.payloads.UserDto;
+import com.anubhav.repository.UserRepo;
+
+public class UserserviceImpl implements UserService{
+
+	private UserRepo userRepo;
+	
+	@Override
+	public UserDto createUser(UserDto user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDto updateUser(UserDto user, Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UserDto getUserById(Integer userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<UserDto> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteUser(Integer userId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
