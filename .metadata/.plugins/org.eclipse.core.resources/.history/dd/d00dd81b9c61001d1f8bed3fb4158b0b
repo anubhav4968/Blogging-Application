@@ -1,0 +1,21 @@
+package com.anubhav.payloads;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import org.springframework.stereotype.Service;
+
+import lombok.Getter;
+
+@Entity
+@Getter
+@Service
+public class PostDto {
+
+    private String postTitle;
+	
+	
+	private String postContent; 
+	
+	
+}

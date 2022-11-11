@@ -1,0 +1,71 @@
+package com.anubhav.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anubhav.entity.Category;
+import com.anubhav.exceptions.ResourceNotFoundException;
+import com.anubhav.payloads.CategoryDto;
+import com.anubhav.repository.CategoryRepo;
+
+@Service
+public class CategoryServiceImpl implements CategoryService{
+
+	@Autowired
+	private CategoryRepo categoryRepo;
+	
+	@Autowired
+	private ModelMapper mp;
+	
+	@Override
+	public CategoryDto createCategory(CategoryDto categoryDto) {
+		Category cat= this.mp.map(categoryDto, Category.class);
+		Category addedCat= this.categoryRepo.save(cat);
+		return this.mp.map(addedCat, CategoryDto.class);
+	}
+
+	@Override
+	public CategoryDto updateCategory(CategoryDto categoryDto, Integer categoryId) {
+		
+		Category cat=this.categoryRepo.findById(categoryId)
+		.orElseThrow(() -> new ResourceNotFoundException("Category","Id",categoryId));
+		cat.setCategoryTitle(categoryDto.getCategoryTitle());
+		cat.setCategoryDiscription(categoryDto.getCategoryDiscription());
+		Category addedCat= this.categoryRepo.save(cat);
+		return this.mp.map(addedCat, CategoryDto.class);
+	}
+
+	@Override
+	public CategoryDto getCategoryById(Integer categoryId) {
+		
+		Category cat = this.categoryRepo.findById(categoryId)
+				.orElseThrow(()-> new ResourceNotFoundException("Category", "Id", categoryId));
+		
+		
+		return this.mp.map(cat, CategoryDto.class);
+	}
+
+	@Override
+	public List<CategoryDto> getAllCategories() {
+		List<Category> listCatgory=this.categoryRepo.findAll();
+		List<CategoryDto> dtoList= listCatgory.stream().map((cat)->this.mp.map(listCatgory, CategoryDto.class))
+		.collect(Collectors.toList());
+		
+		
+		return dtoList;
+	}
+
+	@Override
+	public void deleteCategoryById(Integer categoryId) {
+		Category cat = this.categoryRepo.findById(categoryId)
+				.orElseThrow(()->new ResourceNotFoundException("Category", "Id", categoryId));
+		this.categoryRepo.delete(cat);
+	}
+	
+	 
+
+}

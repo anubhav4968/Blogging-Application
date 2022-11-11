@@ -1,0 +1,38 @@
+package com.anubhav.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.anubhav.payloads.CategoryDto;
+import com.anubhav.service.CategoryService;
+
+@RestController
+@RequestMapping("/api/categories")
+public class CategoryController {
+
+	@Autowired
+	private CategoryService categoryService;
+	//create
+	@PostMapping("/")
+	public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categoryDto)
+	{	
+		CategoryDto createdCategory= this.categoryService.createCategory(categoryDto);
+		return new ResponseEntity<>(createdCategory,HttpStatus.CREATED);
+	}
+	//update
+	@PutMapping("/{categoryId}")
+	public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categoryDto,@PathVariable Integer categoryid){
+	 CategoryDto updatedCategory=	this.categoryService.updateCategory(categoryDto, categoryid);
+        return new ResponseEntity<CategoryDto>(updatedCategory,HttpStatus.OK);	
+	}
+	//delete
+	//get
+	//getAll
+}

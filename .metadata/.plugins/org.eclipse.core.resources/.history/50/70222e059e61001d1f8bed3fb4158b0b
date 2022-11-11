@@ -1,0 +1,36 @@
+package com.anubhav.payloads;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
+import org.springframework.stereotype.Service;
+
+import com.anubhav.entity.Category;
+import com.anubhav.entity.User;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+
+public class PostDto {
+
+    private String postTitle;
+	
+	
+	private String postContent; 
+	
+    private String imageName;
+	
+	private Date addedDate;
+	
+	private Category category;
+	
+	
+	private User user;
+}

@@ -1,0 +1,5 @@
+package com.anubhav.entity;
+
+public class Post {
+
+}

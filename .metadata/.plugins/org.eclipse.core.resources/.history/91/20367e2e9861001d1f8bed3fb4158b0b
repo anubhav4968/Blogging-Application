@@ -1,0 +1,5 @@
+package com.anubhav.repository;
+
+public interface PostRepo {
+
+}

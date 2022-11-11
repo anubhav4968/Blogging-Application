@@ -1,0 +1,11 @@
+package com.anubhav.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+import com.anubhav.entity.Post;
+
+
+public interface PostRepo extends JpaRepository<Post, Integer>{
+
+}
